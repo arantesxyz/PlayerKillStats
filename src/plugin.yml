@@ -1,0 +1,5 @@
+name: PlayerKillTeste
+version: 1.0
+main: xyz.arantes.dev.playerkillstats.Main
+description: Just a test plugin
+author: Gustavo Arantes
