@@ -2,12 +2,17 @@ package xyz.arantes.dev.playerkillstats;
 
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
-import org.bukkit.event.entity.EntityDeathEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.java.JavaPlugin;
+import xyz.arantes.dev.playerkillstats.commands.Statset;
+import xyz.arantes.dev.playerkillstats.commands.Statsadm;
+import xyz.arantes.dev.playerkillstats.commands.Status;
+import xyz.arantes.dev.playerkillstats.commands.Statustop;
 import xyz.arantes.dev.playerkillstats.database.DataManager;
 import xyz.arantes.dev.playerkillstats.database.GettersAndSetters;
+import xyz.arantes.dev.playerkillstats.listeners.EntityDeath;
+import xyz.arantes.dev.playerkillstats.listeners.Interact;
 
 public class Main extends JavaPlugin implements Listener {
 
@@ -33,10 +38,16 @@ public class Main extends JavaPlugin implements Listener {
     }
 
     private void registerCmds() {
+        getCommand("status").setExecutor(new Status());
+        getCommand("statsadm").setExecutor(new Statsadm());
+        getCommand("statset").setExecutor(new Statset());
+        getCommand("statustop").setExecutor(new Statustop());
     }
 
     private void registerEvents() {
         this.getServer().getPluginManager().registerEvents(this, this);
+        this.getServer().getPluginManager().registerEvents(new EntityDeath(), this);
+        this.getServer().getPluginManager().registerEvents(new Interact(), this);
     }
 
     private void loadConfig() {
@@ -44,20 +55,7 @@ public class Main extends JavaPlugin implements Listener {
     }
 
     @EventHandler
-    public void onKill(EntityDeathEvent e){
-        if (e.getEntity().getKiller() != null){
-            e.getEntity().getKiller().sendMessage("§aVocê matou um §e" + e.getEntity().getType().getName());
-            int kills = GettersAndSetters.getMobKills(e.getEntity().getKiller());
-            if (kills >= 0){
-                e.getEntity().getKiller().sendMessage("§aVocê já matou §e" + kills + "§a jogadores.");
-            }
-        }
-    }
-
-    @EventHandler
     public void onJoin(PlayerJoinEvent e){
-        if (!GettersAndSetters.playerExists(e.getPlayer())) {
-            GettersAndSetters.createPlayer(e.getPlayer());
-        }
+        GettersAndSetters.createPlayer(e.getPlayer());
     }
 }

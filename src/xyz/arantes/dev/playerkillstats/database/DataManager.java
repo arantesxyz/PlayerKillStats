@@ -60,11 +60,11 @@ public class DataManager {
         }
     }
 
-    // table:  UUID, displayname, playerkills, mobkills, deaths
+    // table:  UUID, displayname, playerkills, animalkills, monsterkills, deaths, rank
     private static void createTable(){
         PreparedStatement stm = null;
         try {
-            stm = con.prepareStatement("CREATE TABLE IF NOT EXISTS `playerstats` (`uuid` TEXT, `displayname` TEXT, `playerkills` INTEGER, `mobkills` INTEGER, `deaths` INTEGER )");
+            stm = con.prepareStatement("CREATE TABLE IF NOT EXISTS `playerstats` (`uuid` TEXT, `displayname` TEXT, `playerkills` INTEGER, `animalkills` INTEGER, `monsterkills` INTEGER, `deaths` INTEGER, `rank` TEXT )");
             stm.execute();
             stm.close();
             Main.plugin.getServer().getConsoleSender().sendMessage("§aA tabela §e'playerstats' §afoi criada/carregada com sucesso");

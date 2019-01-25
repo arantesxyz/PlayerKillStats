@@ -23,7 +23,7 @@ public class ConfigManager {
         setup();
     }
 
-    public void setup(){
+    private void setup(){
         if(!plugin.getDataFolder().exists()){
             plugin.getDataFolder().mkdir();
         }
@@ -33,6 +33,7 @@ public class ConfigManager {
         if(!file.exists()){
             try {
                 file.createNewFile();
+                plugin.saveResource(filename, true);
             }catch (IOException e){
                 Bukkit.getServer().getConsoleSender().sendMessage(ChatColor.RED + "Falha na criação do arquivo: " + filename);
             }

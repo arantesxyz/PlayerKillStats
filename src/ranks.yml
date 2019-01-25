@@ -1,0 +1,20 @@
+rank1:
+  min_animal_kill: 5
+  min_player_kill: 0
+  min_monstro_kill: 0
+  min_morte: 0
+
+  # Comandos que serão executados quando o jogador atingir este rank.
+  # {jogador} = nome do jogador
+  comandos:
+  - 'say {jogador} matou 5 animais.'
+  - 'spawn {jogador}'
+
+  # Mensagens que serão enviadas para todos quando o jogador atingir este rank.
+  # {jogador} = nome do jogador
+  mensagens:
+  - '&eO jogador {jogador} matou 5 animais.'
+
+  # Mensagens que serão enviadas apenas para o jogador.
+  msg_jogador:
+  - '&aParabéns, você agora está no rank1'

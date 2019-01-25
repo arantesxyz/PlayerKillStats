@@ -1,2 +1,31 @@
 # Prefixo utilizado em todo o plugin.
 prefix: 'PlayerKillStats'
+
+# Mensagem quando o jogador não tem permissão para fazer algo.
+sem_perm: "&cSem permissão."
+
+# Nome do menu GUI /status
+status_gui: '&2Status'
+
+# Nome do meu GUI do /statustop
+top_gui: '&2TOP jogadores'
+
+top_animais_lore:
+  - '&7Top 10 jogadores que'
+  - '&7mais mataram animais.'
+  - '&e&lCLIQUE PARA VER.'
+top_jogadores_lore:
+  - '&7Top 10 jogadores que'
+  - '&7mais mataram outros jogadores.'
+  - '&e&lCLIQUE PARA VER.'
+top_monstros_lore:
+  - '&7Top 10 jogadores que'
+  - '&7mais mataram outros jogadores.'
+  - '&e&lCLIQUE PARA VER.'
+top_mortes_lore:
+  - '&7Top 10 jogadores que'
+  - '&7já morreram no servidor.'
+  - '&e&lCLIQUE PARA VER.'
+
+# Quando o player tenta digitar /status mas não existe registro dele ou do jogador solicitado.
+sem_registro: '&cNão foram encontrados registros desse jogador.'

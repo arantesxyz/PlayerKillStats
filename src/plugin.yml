@@ -1,5 +1,20 @@
-name: PlayerKillTeste
+name: PlayerKillStats
 version: 1.0
 main: xyz.arantes.dev.playerkillstats.Main
 description: Just a test plugin
 author: Gustavo Arantes
+
+commands:
+  status:
+    usage: /<command> [jogador]
+    description: Abre o menu com as informações do jogador.
+    aliases: stats
+  statsadm:
+    usage: /<command> <import/export>
+    description: Leia o arquivo config.yml para mais informações.
+  statset:
+    usage: /<command> <jogadores/animais/monstros/mortes> <jogador> <quantidade>
+    description: Adiciona status para o jogador.
+  statustop:
+    usage: /<command> [jogadores, animais, monstros, mortes]
+    description: Ver os TOP 10 jogadores.

@@ -1,0 +1,11 @@
+mysql:
+  # Caso 'enable: true' e a conexão seja feita o SQLite será desabilitado e os dados não serão atualizados nele.
+  # Utilize /statsadm <importar/exportar>
+  # Importar = copiar do MySQL para o SQLite sobreescrevendo as atualizações.
+  # Exportar = copiar do SQLite para o MySQL sobreescrevendo as atualizações.
+  enable: false
+  host: 'localhost'
+  port: 3306
+  database: 'playerkillstats'
+  user: 'username'
+  password: 'pass'
