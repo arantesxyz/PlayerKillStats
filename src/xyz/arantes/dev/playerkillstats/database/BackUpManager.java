@@ -43,7 +43,7 @@ public class BackUpManager {
                 createTable();
                 while (rs.next()){
                     PreparedStatement stm2 = con.prepareStatement("UPDATE playerstats SET uuid=?, displayname=?, playerkills=?, animalkills=?, monsterkills=?, deaths=?, rank=?");
-                    stm2.setString(1, rs.getString("playerstats"));
+                    stm2.setString(1, rs.getString("uuid"));
                     stm2.setString(2, rs.getString("displayname"));
                     stm2.setInt(3, rs.getInt("playerkills"));
                     stm2.setInt(4, rs.getInt("animalkills"));
@@ -65,8 +65,7 @@ public class BackUpManager {
             e.printStackTrace();
             Main.plugin.getServer().getConsoleSender().sendMessage(Msg.prefix + "§cA conexão com o servidor MySQL falhou.");
         }
-        close();
-        DataManager.openMySQL();
+        Main.reload();
         return false;
     }
 
@@ -101,7 +100,7 @@ public class BackUpManager {
                 createTable();
                 while (rs.next()){
                     PreparedStatement stm2 = con.prepareStatement("UPDATE playerstats SET uuid=?, displayname=?, playerkills=?, animalkills=?, monsterkills=?, deaths=?, rank=?");
-                    stm2.setString(1, rs.getString("playerstats"));
+                    stm2.setString(1, rs.getString("uuid"));
                     stm2.setString(2, rs.getString("displayname"));
                     stm2.setInt(3, rs.getInt("playerkills"));
                     stm2.setInt(4, rs.getInt("animalkills"));
@@ -123,8 +122,7 @@ public class BackUpManager {
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }
-        close();
-        DataManager.openMySQL();
+        Main.reload();
         return false;
     }
 
@@ -143,7 +141,7 @@ public class BackUpManager {
         }
     }
 
-    private static void close(){
+    public static void close(){
         if (con != null){
             try {
                 con.close();

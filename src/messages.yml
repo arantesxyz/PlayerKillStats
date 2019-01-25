@@ -34,3 +34,8 @@ msg_top_jogadores_kills: '&e#{posicao} &7- &a{jogador}&7: &f{numero} &akills em 
 msg_top_monstros_kills: '&e#{posicao} &7- &a{jogador}&7: &f{numero} &akills em monstros.'
 msg_top_animais_kills: '&e#{posicao} &7- &a{jogador}&7: &f{numero} &akills em animais.'
 msg_top_mortes: '&e#{posicao} &7- &a{jogador}&7: &f{numero} &amortes.'
+
+tag_top_jogadores: '&a[jTOP]'
+tag_top_monstros: '&a[jTOP]'
+tag_top_animais: '&a[jTOP]'
+tag_top_mortes: '&a[jTOP]'

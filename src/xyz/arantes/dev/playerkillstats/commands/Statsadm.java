@@ -3,6 +3,7 @@ package xyz.arantes.dev.playerkillstats.commands;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
+import xyz.arantes.dev.playerkillstats.Main;
 import xyz.arantes.dev.playerkillstats.database.BackUpManager;
 import xyz.arantes.dev.playerkillstats.utils.Msg;
 
@@ -16,7 +17,7 @@ public class Statsadm implements CommandExecutor {
             }
 
             if (args.length < 1){
-                sender.sendMessage("§cUtilize: /statsadm <importar/exportar>");
+                sender.sendMessage("§cUtilize: /statsadm <importar/exportar/reload>");
                 return true;
             }
 
@@ -34,6 +35,11 @@ public class Statsadm implements CommandExecutor {
                 }else{
                     sender.sendMessage("§cErro ao copiar os dados do SQLite para o MySQL.");
                 }
+                return true;
+            }
+
+            if (args[0].equalsIgnoreCase("reload")){
+                Main.reload();
                 return true;
             }
         }

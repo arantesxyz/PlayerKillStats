@@ -18,3 +18,11 @@ mysql:
   database: 'playerkillstats'
   user: 'username'
   password: 'pass'
+
+# Jogadores com cada tag
+# Para editar as tags utilize o arquivo messages.yml
+tags:
+  jogadores: ''
+  monstros: ''
+  animais: ''
+  mortes: ''

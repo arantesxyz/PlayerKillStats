@@ -10,6 +10,7 @@ import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.inventory.meta.SkullMeta;
+import xyz.arantes.dev.playerkillstats.Main;
 import xyz.arantes.dev.playerkillstats.database.GettersAndSetters;
 import xyz.arantes.dev.playerkillstats.utils.Msg;
 
@@ -99,6 +100,7 @@ public class Statustop implements CommandExecutor {
     }
 
     public static void sendTop10(String type, Player player){
+        Main.plugin.reloadConfig();
         if (type.equalsIgnoreCase("players")){
             Map<String, Integer> list = GettersAndSetters.getTopPlayerKills(10);
             int c= 0;
@@ -106,6 +108,10 @@ public class Statustop implements CommandExecutor {
             for (String key : list.keySet()){
                 c++;
                 player.sendMessage(Msg.getMessage("msg_top_jogadores_kills").replace("{posicao}", c+"").replace("{jogador}", key).replace("{numero}",list.get(key)+""));
+                if (c == 1){
+                    Main.plugin.getConfig().set("tags.jogadores", key);
+                    Main.plugin.saveConfig();
+                }
             }
             player.sendMessage("\n§e  ============================  \n");
         }else if (type.equalsIgnoreCase("monsters")){
@@ -115,6 +121,10 @@ public class Statustop implements CommandExecutor {
             for (String key : list.keySet()){
                 c++;
                 player.sendMessage(Msg.getMessage("msg_top_monstros_kills").replace("{posicao}", c+"").replace("{jogador}", key).replace("{numero}",list.get(key)+""));
+                if (c == 1){
+                    Main.plugin.getConfig().set("tags.monstros", key);
+                    Main.plugin.saveConfig();
+                }
             }
             player.sendMessage("\n§e  ============================  \n");
         }else if (type.equalsIgnoreCase("animals")) {
@@ -124,6 +134,10 @@ public class Statustop implements CommandExecutor {
             for (String key : list.keySet()) {
                 c++;
                 player.sendMessage(Msg.getMessage("msg_top_animais_kills").replace("{posicao}", c + "").replace("{jogador}", key).replace("{numero}", list.get(key) + ""));
+                if (c == 1){
+                    Main.plugin.getConfig().set("tags.animais", key);
+                    Main.plugin.saveConfig();
+                }
             }
             player.sendMessage("\n§e  ============================  \n");
         }else if (type.equalsIgnoreCase("deaths")) {
@@ -133,8 +147,13 @@ public class Statustop implements CommandExecutor {
             for (String key : list.keySet()) {
                 c++;
                 player.sendMessage(Msg.getMessage("msg_top_mortes").replace("{posicao}", c + "").replace("{jogador}", key).replace("{numero}", list.get(key) + ""));
+                if (c == 1){
+                    Main.plugin.getConfig().set("tags.mortes", key);
+                    Main.plugin.saveConfig();
+                }
             }
             player.sendMessage("\n§e  ===================  \n");
         }
+        Main.plugin.reloadConfig();
     }
 }

@@ -15,6 +15,10 @@ public class Msg {
         msg.reloadFile();
         return ChatColor.translateAlternateColorCodes('&', msg.getData().getString(path));
     }
+    public static String getConfig(String path){
+        Main.plugin.reloadConfig();
+        return ChatColor.translateAlternateColorCodes('&', Main.plugin.getConfig().getString(path));
+    }
 
     public static List<String> getMessagelist(String path){
         ArrayList<String> list = new ArrayList<>();

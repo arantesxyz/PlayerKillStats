@@ -8,12 +8,14 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
-
+@SuppressWarnings("Duplicates")
 public class DataManager {
 
     public static Connection con = null;
 
     public static void openMySQL(){
+        close();
+        BackUpManager.close();
         if (Main.plugin.getConfig().getBoolean("mysql.enable")){
             String host = Main.plugin.getConfig().getString("mysql.host");
             int port = Main.plugin.getConfig().getInt("mysql.port");

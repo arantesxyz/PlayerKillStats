@@ -1,6 +1,9 @@
 package xyz.arantes.dev.playerkillstats;
 
+import br.com.devpaulo.legendchat.api.events.ChatMessageEvent;
+import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
+import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
@@ -15,6 +18,7 @@ import xyz.arantes.dev.playerkillstats.database.GettersAndSetters;
 import xyz.arantes.dev.playerkillstats.listeners.EntityDeath;
 import xyz.arantes.dev.playerkillstats.listeners.Interact;
 import xyz.arantes.dev.playerkillstats.utils.A;
+import xyz.arantes.dev.playerkillstats.utils.Msg;
 
 public class Main extends JavaPlugin implements Listener {
 
@@ -36,8 +40,14 @@ public class Main extends JavaPlugin implements Listener {
         DataManager.close();
     }
 
-    private void loadDB() {
+    private static void loadDB() {
         DataManager.openMySQL();
+    }
+
+    public static void reload() {
+        plugin.saveConfig();
+        Bukkit.getServer().getPluginManager().disablePlugin(plugin);
+        Bukkit.getServer().getPluginManager().enablePlugin(plugin);
     }
 
     private void registerCmds() {
@@ -74,4 +84,31 @@ public class Main extends JavaPlugin implements Listener {
     public void onJoin(PlayerJoinEvent e){
         GettersAndSetters.createPlayer(e.getPlayer());
     }
+    @EventHandler
+    public void onChat(ChatMessageEvent e){
+
+        reloadConfig();
+        Player p = e.getSender();
+        if (getConfig().contains("tags.jogadores")){
+            if(e.getTags().contains("topkj") && (p.getName().equalsIgnoreCase(getConfig().getString("tags.jogadores")))){
+                e.setTagValue("topkj", Msg.getMessage("tag_top_jogadores"));
+            }
+        }
+        if (getConfig().contains("tags.monstros")){
+            if(e.getTags().contains("topkm") && (p.getName().equalsIgnoreCase(getConfig().getString("tags.monstros")))){
+                e.setTagValue("topkm", Msg.getMessage("tag_top_monstros"));
+            }
+        }
+        if (getConfig().contains("tags.animais")){
+            if(e.getTags().contains("topka") && (p.getName().equalsIgnoreCase(getConfig().getString("tags.animais")))){
+                e.setTagValue("topka", Msg.getMessage("tag_top_animais"));
+            }
+        }
+        if (getConfig().contains("tags.mortes")){
+            if(e.getTags().contains("topmortes") && (p.getName().equalsIgnoreCase(getConfig().getString("tags.mortes")))){
+                e.setTagValue("topmortes", Msg.getMessage("tag_top_mortes"));
+            }
+        }
+    }
+
 }
