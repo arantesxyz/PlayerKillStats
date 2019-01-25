@@ -1,3 +1,12 @@
+# ################              == ATENÇÃO ==              ################
+# SOFTWARE LICENCIADO - PARA QUE O PLUGIN POSSA EXECUTAR É PRECISO CONEXÃO
+# COM A INTERNET DURANTE A INICIAZAÇÃO DO SERVIDOR E UMA LICENÇA VÁLIDA.
+# Exemplo:
+# licenca: 'XXXXXXXXXXXXXXXX'
+# Coloque a sua licença abaixo:
+licenca: ''
+
+# Configurações relacionadas ao MySQL.
 mysql:
   # Caso 'enable: true' e a conexão seja feita o SQLite será desabilitado e os dados não serão atualizados nele.
   # Utilize /statsadm <importar/exportar>

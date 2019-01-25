@@ -32,7 +32,6 @@ public class BackUpManager {
             if (stm.execute()){
                 rs = stm.getResultSet();
             }
-            close();
             File file = new File(Main.plugin.getDataFolder(), "data.db");
 
             String url2 = "jdbc:sqlite:" + file;
@@ -53,7 +52,6 @@ public class BackUpManager {
                     stm2.setString(7, rs.getString("rank"));
                     stm2.executeUpdate();
                 }
-                close();
                 return true;
             } catch (SQLException e) {
                 e.printStackTrace();
@@ -67,6 +65,7 @@ public class BackUpManager {
             e.printStackTrace();
             Main.plugin.getServer().getConsoleSender().sendMessage(Msg.prefix + "§cA conexão com o servidor MySQL falhou.");
         }
+        close();
         DataManager.openMySQL();
         return false;
     }
@@ -111,7 +110,6 @@ public class BackUpManager {
                     stm2.setString(7, rs.getString("rank"));
                     stm2.executeUpdate();
                 }
-                close();
                 return true;
             } catch (SQLException e) {
                 e.printStackTrace();
@@ -125,6 +123,7 @@ public class BackUpManager {
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }
+        close();
         DataManager.openMySQL();
         return false;
     }

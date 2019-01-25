@@ -32,6 +32,7 @@ public class Statset implements CommandExecutor {
                     }
                     GettersAndSetters.updatePlayerKills(target, qnt);
                     sender.sendMessage("§aA quantidade de kills de jogador do jogador §e" + target.getDisplayName() + "§a foram atualizadas para §e" + qnt);
+                    return true;
                 }else{
                     sender.sendMessage("§cO jogador solicitado não existe no banco de dados ou não está online.");
                     return true;
@@ -46,6 +47,7 @@ public class Statset implements CommandExecutor {
                     }
                     GettersAndSetters.updateAnimalKills(target, qnt);
                     sender.sendMessage("§aA quantidade de kills de animais do jogador §e" + target.getDisplayName() + "§a foram atualizadas para §e" + qnt);
+                    return true;
                 }else{
                     sender.sendMessage("§cO jogador solicitado não existe no banco de dados ou não está online.");
                     return true;
@@ -61,6 +63,7 @@ public class Statset implements CommandExecutor {
                     }
                     GettersAndSetters.updateMonsterKills(target, qnt);
                     sender.sendMessage("§aA quantidade de kills de monstro do jogador §e" + target.getDisplayName() + "§a foram atualizadas para §e" + qnt);
+                    return true;
                 }else{
                     sender.sendMessage("§cO jogador solicitado não existe no banco de dados ou não está online.");
                     return true;
@@ -76,6 +79,7 @@ public class Statset implements CommandExecutor {
                     }
                     GettersAndSetters.updateDeaths(target, qnt);
                     sender.sendMessage("§aA quantidade de mortes do jogador §e" + target.getDisplayName() + "§a foram atualizadas para §e" + qnt);
+                    return true;
                 }else{
                     sender.sendMessage("§cO jogador solicitado não existe no banco de dados ou não está online.");
                     return true;

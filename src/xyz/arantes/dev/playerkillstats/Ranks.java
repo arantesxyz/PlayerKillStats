@@ -13,7 +13,7 @@ public class Ranks {
     public static void rankCheck(Player player){
         ranks.reloadFile();
         for (String key : ranks.getData().getKeys(false)){
-            if (key.equalsIgnoreCase(GettersAndSetters.getRank(player))){
+            if (ranks.getData().getInt(GettersAndSetters.getRank(player) + ".peso") >= ranks.getData().getInt(key + ".peso")){
                 continue;
             }
             int ak = GettersAndSetters.getAnimalKills(player);

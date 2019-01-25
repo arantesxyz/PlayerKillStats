@@ -26,6 +26,7 @@ public class Statsadm implements CommandExecutor {
                 }else{
                     sender.sendMessage("§cErro ao copiar os dados do MySQL para o SQLite.");
                 }
+                return true;
             }
             if (args[0].equalsIgnoreCase("exportar")){
                 if (BackUpManager.sqliteToMysql()){
@@ -33,6 +34,7 @@ public class Statsadm implements CommandExecutor {
                 }else{
                     sender.sendMessage("§cErro ao copiar os dados do SQLite para o MySQL.");
                 }
+                return true;
             }
         }
         return false;

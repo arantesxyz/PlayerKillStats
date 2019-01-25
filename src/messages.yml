@@ -29,3 +29,8 @@ top_mortes_lore:
 
 # Quando o player tenta digitar /status mas não existe registro dele ou do jogador solicitado.
 sem_registro: '&cNão foram encontrados registros desse jogador.'
+
+msg_top_jogadores_kills: '&e#{posicao} &7- &a{jogador}&7: &f{numero} &akills em jogadores.'
+msg_top_monstros_kills: '&e#{posicao} &7- &a{jogador}&7: &f{numero} &akills em monstros.'
+msg_top_animais_kills: '&e#{posicao} &7- &a{jogador}&7: &f{numero} &akills em animais.'
+msg_top_mortes: '&e#{posicao} &7- &a{jogador}&7: &f{numero} &amortes.'

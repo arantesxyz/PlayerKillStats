@@ -10,7 +10,7 @@ commands:
     description: Abre o menu com as informações do jogador.
     aliases: stats
   statsadm:
-    usage: /<command> <import/export>
+    usage: /<command> <importar/exportar>
     description: Leia o arquivo config.yml para mais informações.
   statset:
     usage: /<command> <jogadores/animais/monstros/mortes> <jogador> <quantidade>

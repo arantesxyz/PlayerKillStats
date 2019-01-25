@@ -1,5 +1,6 @@
 package xyz.arantes.dev.playerkillstats;
 
+import org.bukkit.ChatColor;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
@@ -13,6 +14,7 @@ import xyz.arantes.dev.playerkillstats.database.DataManager;
 import xyz.arantes.dev.playerkillstats.database.GettersAndSetters;
 import xyz.arantes.dev.playerkillstats.listeners.EntityDeath;
 import xyz.arantes.dev.playerkillstats.listeners.Interact;
+import xyz.arantes.dev.playerkillstats.utils.A;
 
 public class Main extends JavaPlugin implements Listener {
 
@@ -23,6 +25,7 @@ public class Main extends JavaPlugin implements Listener {
         plugin = this;
 
         loadConfig();
+        l();
         loadDB();
         registerEvents();
         registerCmds();
@@ -52,6 +55,19 @@ public class Main extends JavaPlugin implements Listener {
 
     private void loadConfig() {
         saveDefaultConfig();
+    }
+
+    private void l() {
+        try{
+            A.b();
+        }catch (Exception e){
+            this.getLogger().info(ChatColor.RED + "============================================");
+            this.getLogger().info(ChatColor.RED + "Não foi possível fazer a conexão com a");
+            this.getLogger().info(ChatColor.RED + "nossa API ou a sua licença não é válida!");
+            this.getLogger().info(ChatColor.RED + "Entre em contato com o desenvolvedor para mais informações.");
+            this.getLogger().info(ChatColor.RED + "============================================");
+            this.getPluginLoader().disablePlugin(this);
+        }
     }
 
     @EventHandler

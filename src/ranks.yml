@@ -1,4 +1,5 @@
 rank1:
+  peso: 1
   min_animal_kill: 5
   min_player_kill: 0
   min_monstro_kill: 0
