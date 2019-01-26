@@ -9,7 +9,6 @@ import org.bukkit.entity.Player;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
-import org.bukkit.inventory.meta.SkullMeta;
 import xyz.arantes.dev.playerkillstats.Main;
 import xyz.arantes.dev.playerkillstats.database.GettersAndSetters;
 import xyz.arantes.dev.playerkillstats.utils.Msg;
@@ -60,7 +59,7 @@ public class Statustop implements CommandExecutor {
         phead.setItemMeta(pheadMeta);
 
         // animais
-        ItemStack ahead = new ItemStack(Material.RAW_FISH, 1, (short) 2);
+        ItemStack ahead = new ItemStack(Material.RAW_FISH, 1, (short) 3);
         ItemMeta aheadMeta = ahead.getItemMeta();
 
         aheadMeta.setLore(Msg.getMessagelist("top_animais_lore"));
@@ -68,7 +67,7 @@ public class Statustop implements CommandExecutor {
         ahead.setItemMeta(aheadMeta);
 
         // monstros
-        ItemStack mhead = new ItemStack(Material.SKULL_ITEM, 1, (short) 2);
+        ItemStack mhead = new ItemStack(Material.SKULL_ITEM, 1, (short) 4);
         ItemMeta mheadMeta = mhead.getItemMeta();
 
         mheadMeta.setLore(Msg.getMessagelist("top_monstros_lore"));
@@ -76,7 +75,7 @@ public class Statustop implements CommandExecutor {
         mhead.setItemMeta(mheadMeta);
 
         // jogadores
-        ItemStack jhead = new ItemStack(Material.IRON_SWORD, 1);
+        ItemStack jhead = new ItemStack(Material.DIAMOND_SWORD, 1);
         ItemMeta jheadMeta = jhead.getItemMeta();
 
         jheadMeta.setLore(Msg.getMessagelist("top_jogadores_lore"));
