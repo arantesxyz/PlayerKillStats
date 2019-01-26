@@ -52,6 +52,7 @@ public class BackUpManager {
                     stm2.setString(7, rs.getString("rank"));
                     stm2.executeUpdate();
                 }
+                Main.reload();
                 return true;
             } catch (SQLException e) {
                 e.printStackTrace();
@@ -109,6 +110,7 @@ public class BackUpManager {
                     stm2.setString(7, rs.getString("rank"));
                     stm2.executeUpdate();
                 }
+                Main.reload();
                 return true;
             } catch (SQLException e) {
                 e.printStackTrace();
