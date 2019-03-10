@@ -14,7 +14,7 @@ import java.net.URL;
 
 public class A {
 
-    public static void b() throws IOException, ClassNotFoundException {
+    public static void b() throws IOException {
             String licenca = Main.plugin.getConfig().getString("licenca");
             String url = "https://api.dev.arantes.xyz/licencas/check?lpluginid=293&licenca=" + licenca;
 
@@ -27,7 +27,7 @@ public class A {
             JsonElement root = jp.parse(new InputStreamReader((InputStream) con.getContent()));
             JsonObject rootobj = root.getAsJsonObject();
 
-            Boolean valid = rootobj.get("valid").getAsBoolean();
+            boolean valid = rootobj.get("valid").getAsBoolean();
 
             if (valid){
                String user = rootobj.get("user").getAsString();

@@ -10,7 +10,7 @@
     <orderEntry type="module-library">
       <library>
         <CLASSES>
-          <root url="jar://D:/RedeLord/jars/Thermos-1.7.10-1614-server.jar!/" />
+          <root url="jar://E:/RedeLord/plugins/LegendChat.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
@@ -19,7 +19,7 @@
     <orderEntry type="module-library">
       <library>
         <CLASSES>
-          <root url="jar://D:/RedeLord/plugins/Gson-for-17-1.0-SNAPSHOT.jar!/" />
+          <root url="jar://E:/RedeLord/jars/Thermos-1.7.10-1614-server.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
@@ -28,7 +28,7 @@
     <orderEntry type="module-library">
       <library>
         <CLASSES>
-          <root url="jar://D:/RedeLord/plugins/LegendChat.jar!/" />
+          <root url="jar://E:/RedeLord/plugins/Gson-for-17-1.0-SNAPSHOT.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
